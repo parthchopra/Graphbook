@@ -1,3 +1,5 @@
+import logger from "../../helpers/logger";
+
 let posts = [
   {
     id: 2,
