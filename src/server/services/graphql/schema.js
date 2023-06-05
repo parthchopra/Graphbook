@@ -5,23 +5,36 @@ const typeDefinitions = `
     user: User
   }
   type User {
+    id: Int
     avatar: String
     username: String
   }
-  type RootQuery {
-    posts: [Post]
+
+  type Message {
+    id: Int
+    text: String
+    chat: Chat
+    user: User
   }
+
+  type Chat {
+    id: Int
+    messages: [Message]
+    users: [User]
+  }
+
   input PostInput {
     text: String!
   }
-  input UserInput {
-    username: String!
-    avatar: String!
+  
+  type RootQuery {
+    posts: [Post]
+    chats: [Chat]
   }
+
   type RootMutation {
     addPost (
       post: PostInput!
-      user: UserInput!
     ): Post
   }
   schema {
